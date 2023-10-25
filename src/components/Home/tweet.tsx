@@ -4,13 +4,12 @@ import DeleteButton from "./deleteButton.tsx";
 import {auth} from "../../../fireBase.ts";
 
 
+
 const Wrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
-  
- 
 `;
 
 const Column = styled.div``;
@@ -37,12 +36,41 @@ const TextWrapper = styled.div`
   padding: 20px;
 `
 
+const UserProfileImg = styled.img`
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1d9bf0;
+    display: flex;  
+    justify-content: center;
+`;
+
+const ProfileWrapper = styled.div`
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+`;
+
+
+
 export default function Tweet({  username, image, tweet, userId, tweetId }: TimeLineProps) {
     const user = auth.currentUser;
     return (
         <Wrapper>
+            <ProfileWrapper>
+                <UserProfileImg
+                    src={user.photoURL}
+                    alt="user profile"
+                >
 
-            <Username>{username} @ {userId}</Username>
+                </UserProfileImg>
+
+                <Username>{username} @ {userId}</Username>
+            </ProfileWrapper>
+
+
+
             <TextWrapper>
                 <Column>
 
