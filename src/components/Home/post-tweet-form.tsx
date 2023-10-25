@@ -128,7 +128,7 @@ export default function PostTweetForm() {
     };
 
     return (
-        <Form>
+        <Form onSubmit={onSubmit}>
             <TextArea
                 rows={5}
                 maxLength={180}
@@ -149,7 +149,6 @@ export default function PostTweetForm() {
             <SubmitBtn
                 type="submit"
                 value={isLoading ? "Posting..." : "Post Tweet"}
-                onClick = {onSubmit}
             />
         </Form>
     );

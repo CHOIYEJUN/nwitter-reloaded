@@ -56,11 +56,12 @@ const ProfileWrapper = styled.div`
 
 export default function Tweet({  username, image, tweet, userId, tweetId }: TimeLineProps) {
     const user = auth.currentUser;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return (
         <Wrapper>
             <ProfileWrapper>
                 <UserProfileImg
-                    src={user.photoURL}
                     alt="user profile"
                 >
 

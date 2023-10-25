@@ -89,7 +89,7 @@ export default function Login() {
     return (
         <Wrapper>
             <Title>LOGIN INTO</Title>
-            <StyleForm >
+            <StyleForm onSubmit={onSubmit} >
                 <Input
                     name = "email"
                     placeholder = "Email"
@@ -109,7 +109,6 @@ export default function Login() {
                 <Input
                     type = "submit"
                     value ={!isLoading ? "Loding..." : "Log In"}
-                    onClick = {onSubmit}
                 />
 
             </StyleForm>

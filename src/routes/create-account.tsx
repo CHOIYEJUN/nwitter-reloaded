@@ -76,7 +76,7 @@ export default function CreateAccount() {
 
         <Wrapper>
             <Title>회원가입</Title>
-            <StyleForm >
+            <StyleForm onSubmit={onSubmit}>
                 <Input
                     name = "username"
                     placeholder = "Username"
@@ -114,7 +114,7 @@ export default function CreateAccount() {
                 <Input
                     type = "submit"
                     value ={!isLoading ? "Loding..." : "Create Account"}
-                    onClick = {onSubmit}
+
                 />
 
             </StyleForm>
