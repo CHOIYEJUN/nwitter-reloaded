@@ -47,7 +47,7 @@ export default  function GoogleBtn() {
             <Button
                 onClick={onClick}
             >
-                <Logo src="./src/img/googleLogo.svg"></Logo>
+                <Logo src="/src/img/googleLogo.svg"></Logo>
                 Continue with Google
             </Button>
         </>

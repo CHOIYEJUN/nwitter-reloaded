@@ -92,6 +92,7 @@ export default function Profile() {
 
         setTweets(myTweets);
     };
+
     useEffect(() => {
         fetchTweets();
     }, []);
@@ -119,8 +120,8 @@ export default function Profile() {
             />
             <Name>{user?.displayName ?? "Anonymous"}</Name>
             <Tweets>
-                {tweets.map((tweet) => (
-                    <Tweet key={tweet.userId} {...tweet} />
+                {tweets.map((mytweet) => (
+                    <Tweet key={mytweet.userId} {...mytweet} />
                 ))}
             </Tweets>
         </Wrapper>

@@ -62,6 +62,7 @@ export default function Tweet({  username, image, tweet, userId, tweetId }: Time
         <Wrapper>
             <ProfileWrapper>
                 <UserProfileImg
+                    src={user?.photoURL || ''}
                     alt="user profile"
                 >
 
