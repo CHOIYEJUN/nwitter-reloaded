@@ -2,12 +2,13 @@ import { GithubAuthProvider, signInWithPopup } from "firebase/auth";
 import {styled} from "styled-components";
 import {auth} from "../../../fireBase.ts";
 import {useNavigate} from "react-router-dom";
+import {FaGithub} from "react-icons/fa";
 
 
 const Button = styled.button`
   margin-top: 50px;
   background-color: white;
-  font-weight: 500;
+  font-weight: 600;
   width: 100%;
   color: black;
   padding: 10px 20px;
@@ -18,11 +19,9 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-size: 1.2em;
 `
 
-const Logo = styled.img`
-    height: 25px;
-`
 
 
 export default  function GithubBtn() {
@@ -46,8 +45,8 @@ export default  function GithubBtn() {
             <Button
                 onClick={onClick}
             >
-                <Logo src="/src/img/github-mark.svg"></Logo>
-                Continue with Github
+                <FaGithub size={"25px"} />
+                Github 에서 가입하기
             </Button>
         </>
     )

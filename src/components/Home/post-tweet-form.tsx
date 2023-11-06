@@ -106,6 +106,7 @@ export default function PostTweetForm() {
                 image: "",
                 userId: user?.uid,
                 username: user?.displayName || "Anonymous",
+                creatorImageURL: user?.photoURL,
             });
             if(file) {
                 const fileRef = ref(storageService, `tweets/${user?.uid}/${tweetDoc.id}`);

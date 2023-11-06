@@ -2,13 +2,14 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import {styled} from "styled-components";
 import {auth} from "../../../fireBase.ts";
 import {useNavigate} from "react-router-dom";
+import {FcGoogle} from "react-icons/fc";
 
 
 
 const Button = styled.button`
   margin-top: 20px;
   background-color: white;
-  font-weight: 500;
+  font-weight: 600;
   width: 100%;
   color: black;
   padding: 10px 20px;
@@ -19,11 +20,9 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-size: 1.2em;
 `
 
-const Logo = styled.img`
-    height: 25px;
-`
 
 
 export default  function GoogleBtn() {
@@ -47,8 +46,8 @@ export default  function GoogleBtn() {
             <Button
                 onClick={onClick}
             >
-                <Logo src="/src/img/googleLogo.svg"></Logo>
-                Continue with Google
+                <FcGoogle size={"25px"} />
+                Google 에서 가입하기
             </Button>
         </>
     )

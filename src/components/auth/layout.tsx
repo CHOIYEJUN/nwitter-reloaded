@@ -1,47 +1,22 @@
 import {auth} from "../../../fireBase.ts";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
+import { RiHome7Fill } from "react-icons/ri";
+import {Box, HStack, Text, useDisclosure, VStack} from "@chakra-ui/react";
+import {FaRegUser} from "react-icons/fa6";
+import {BiLogOut} from "react-icons/bi";
+import {BsFillCalendarHeartFill} from "react-icons/bs";
+import CreatePostModal from "../../routes/post/create_post_modal.tsx";
 
-
-const Wrapper = styled.div`
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr 4fr;
-  height: 100%;
-  padding: 50px 0px;
-  width: 100%;
-  max-width: 860px;
-`;
 
 const Menu = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: right;
   gap: 20px;
 `;
-
-const MenuItem = styled.div`
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid white;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  svg {
-    width: 30px;
-    fill: white;
-  }
-  &.log-out {
-    border-color: tomato;
-    svg {
-      fill: tomato;
-    }
-  }
-`;
-
 export default function Layout() {
+    const { isOpen, onOpen, onClose } = useDisclosure();
     const navigate = useNavigate();
     const onLogOut = async () => {
         const ok = confirm("Are you sure you want to log out?");
@@ -51,57 +26,104 @@ export default function Layout() {
         }
     };
     return (
-        <Wrapper>
+        <VStack alignItems={"flex-start"} spacing="0" mt={"120px"}>
+
             <Menu>
                 <Link to="/">
-                    <MenuItem>
-                        <svg
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                        >
-                            <path
-                                clipRule="evenodd"
-                                fillRule="evenodd"
-                                d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z"
-                            />
-                        </svg>
-                    </MenuItem>
+                    <HStack
+                        fontSize="30px"
+                        pl="10px"
+                        pr="20px"
+                        py="10px"
+                        borderRadius="30px"
+                        _hover={{ cursor: "pointer", bgColor: "whiteAlpha.300" }}
+                        mb="10px"
+                    >
+                        <RiHome7Fill />
+                        <Text fontSize="20px" fontWeight="bold" ml="10px">
+                            홈
+                        </Text>
+                    </HStack>
+
+
                 </Link>
                 <Link to="/profile">
-                    <MenuItem>
-                        <svg
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                        >
-                            <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z" />
-                        </svg>
-                    </MenuItem>
-                </Link>
-                <MenuItem onClick={onLogOut} className="log-out">
-                    <svg
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
+
+                    <HStack
+                        fontSize="30px"
+                        pl="10px"
+                        pr="20px"
+                        py="10px"
+                        borderRadius="30px"
+                        _hover={{ cursor: "pointer", bgColor: "whiteAlpha.300" }}
+                        mb="10px"
                     >
-                        <path
-                            clipRule="evenodd"
-                            fillRule="evenodd"
-                            d="M3 4.25A2.25 2.25 0 015.25 2h5.5A2.25 2.25 0 0113 4.25v2a.75.75 0 01-1.5 0v-2a.75.75 0 00-.75-.75h-5.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 00.75-.75v-2a.75.75 0 011.5 0v2A2.25 2.25 0 0110.75 18h-5.5A2.25 2.25 0 013 15.75V4.25z"
-                        />
-                        <path
-                            clipRule="evenodd"
-                            fillRule="evenodd"
-                            d="M19 10a.75.75 0 00-.75-.75H8.704l1.048-.943a.75.75 0 10-1.004-1.114l-2.5 2.25a.75.75 0 000 1.114l2.5 2.25a.75.75 0 101.004-1.114l-1.048-.943h9.546A.75.75 0 0019 10z"
-                        />
-                    </svg>
-                </MenuItem>
+                        <FaRegUser />
+                        <Text fontSize="20px" fontWeight="bold" ml="10px">
+                            프로필
+                        </Text>
+                    </HStack>
+
+                </Link>
+
+                <Link to="/calender">
+
+                    <HStack
+                        fontSize="30px"
+                        pl="10px"
+                        pr="20px"
+                        py="10px"
+                        borderRadius="30px"
+                        _hover={{ cursor: "pointer", bgColor: "whiteAlpha.300" }}
+                        mb="10px"
+                    >
+                        <BsFillCalendarHeartFill />
+                        <Text fontSize="20px" fontWeight="bold" ml="10px">
+                            캘린더
+                        </Text>
+                    </HStack>
+
+                </Link>
+                
+                <HStack
+                    fontSize="30px"
+                    pl="10px"
+                    pr="20px"
+                    py="10px"
+                    borderRadius="30px"
+                    _hover={{ cursor: "pointer", bgColor: "whiteAlpha.300" }}
+                    mb="10px"
+                    onClick={onLogOut}
+                >
+                    <BiLogOut />
+                    <Text fontSize="20px" fontWeight="bold" ml="10px">
+                        로그아웃
+                    </Text>
+                </HStack>
+
+                <Box
+                    w="200px"
+                    h="50px"
+                    bgColor="twitter.600"
+                    borderRadius="60px"
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    fontWeight="bold"
+                    opacity="0.7"
+                    _hover={{
+                        opacity: 1,
+                        cursor: "pointer",
+                    }}
+                    onClick={onOpen}
+                >
+                    게시하기
+                </Box>
+                <CreatePostModal isOpen={isOpen} onClose={onClose} />
+
+
             </Menu>
             <Outlet />
-        </Wrapper>
+        </VStack>
     );
 }

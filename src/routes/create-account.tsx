@@ -2,9 +2,12 @@ import { useNavigate} from "react-router-dom";
 import React, {useState} from "react";
 import {auth} from "../../fireBase.ts";
 import {createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
-import {StyleForm, Title, Wrapper, Input, } from "../style/auth/auth-components.ts";
+import {StyleForm, Title, Wrapper, Input, BgVideo,ChackPasswoadSpan} from "../style/auth/auth-components.ts";
 import GithubBtn from "../components/auth/github-btn.tsx";
 import GoogleBtn from "../components/auth/google-btn.tsx";
+import ReactPlayer from "react-player";
+import {CreateUserField} from "../Types/util.tsx";
+import {Center} from "@chakra-ui/react";
 
 export default function CreateAccount() {
 
@@ -16,6 +19,7 @@ export default function CreateAccount() {
     const [passwordConfirm, setPasswordConfirm] = useState("");
     const [error, setError] = useState("");
     const [passwordCheck, setPasswordCheck] = useState(false);
+    const [passwordChackSpan, setPasswordChackSpan] = useState("");
     const navigation = useNavigate();
 
     const onChange = (event:React.ChangeEvent<HTMLInputElement>) => {
@@ -28,8 +32,10 @@ export default function CreateAccount() {
             setPassword(value);
         }else if(name === "passwordConfirm"){
             if(password === value){
+                setPasswordChackSpan("");
                 setPasswordCheck(true);
             }else {
+                setPasswordChackSpan("비밀번호가 일치하지 않습니다.");
                 setPasswordCheck(false);
             }
             setPasswordConfirm(value);
@@ -50,6 +56,7 @@ export default function CreateAccount() {
                 displayName: username,
             });
             navigation("/");
+            CreateUserField(credentials.user.uid);
 
         }catch (e : any){
             if (e.message === "Firebase: Error (auth/email-already-in-use)."){
@@ -73,6 +80,23 @@ export default function CreateAccount() {
 
 
     return (
+        <>
+
+            <Center>
+
+
+
+        <BgVideo >
+            <ReactPlayer
+                url={"https://youtu.be/X-XZx1o_w-A"}
+                width="100%"
+                height="100vh"
+                loop={true}
+                playing={true}
+                muted={true}
+                controls={false}
+            />
+        </BgVideo>
 
         <Wrapper>
             <Title>회원가입</Title>
@@ -118,10 +142,12 @@ export default function CreateAccount() {
                 />
 
             </StyleForm>
-            {!passwordCheck ? <span>비밀번호가 일치하지 않습니다 다시한번 확인해주세요</span>: null}
+            <ChackPasswoadSpan>{passwordChackSpan}</ChackPasswoadSpan>
 
             <GithubBtn />
             <GoogleBtn />
         </Wrapper>
+            </Center>
+        </>
     )
 }
