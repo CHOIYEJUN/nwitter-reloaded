@@ -6,12 +6,13 @@ import { getStorage } from "firebase/storage";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAxL0AiGTnM1e_M3P60-7BVAwewpqLGvuY",
-    authDomain: "nwitter-d91ae.firebaseapp.com",
-    projectId: "nwitter-d91ae",
-    storageBucket: "nwitter-d91ae.appspot.com",
-    messagingSenderId: "112349353378",
-    appId: "1:112349353378:web:a0c72e36efdd7548234efb"
+
+    apiKey: "AIzaSyD7lqJz3o8yGCb7YkE52J2Z1CiLMKfNZgg",
+    authDomain: "nwitterclone-913be.firebaseapp.com",
+    projectId: "nwitterclone-913be",
+    storageBucket: "nwitterclone-913be.appspot.com",
+    messagingSenderId: "78669749300",
+    appId: "1:78669749300:web:e8fca987252abf05f33e61"
 };
 
 // Initialize Firebase

@@ -208,7 +208,7 @@ export default function ProfileSettingModal({ isOpen, onClose }: IModal) {
         }
 
         onModalClose();
-        navigate("/feed");
+        navigate("/");
     }
 
     return (

@@ -88,7 +88,7 @@ export default function CreateAccount() {
 
         <BgVideo >
             <ReactPlayer
-                url={"https://youtu.be/X-XZx1o_w-A"}
+                url={"https://youtu.be/iGpuQ0ioPrM?si=HsIncnwoag_CQlpS"}
                 width="100%"
                 height="100vh"
                 loop={true}

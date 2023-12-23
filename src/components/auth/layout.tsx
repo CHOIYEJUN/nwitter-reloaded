@@ -5,7 +5,6 @@ import { RiHome7Fill } from "react-icons/ri";
 import {Box, HStack, Text, useDisclosure, VStack} from "@chakra-ui/react";
 import {FaRegUser} from "react-icons/fa6";
 import {BiLogOut} from "react-icons/bi";
-import {BsFillCalendarHeartFill} from "react-icons/bs";
 import CreatePostModal from "../../routes/post/create_post_modal.tsx";
 
 
@@ -66,7 +65,7 @@ export default function Layout() {
 
                 </Link>
 
-                <Link to="/calender">
+                {/*<Link to="/calender">
 
                     <HStack
                         fontSize="30px"
@@ -83,8 +82,8 @@ export default function Layout() {
                         </Text>
                     </HStack>
 
-                </Link>
-                
+                </Link>*/}
+
                 <HStack
                     fontSize="30px"
                     pl="10px"

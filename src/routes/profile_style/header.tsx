@@ -36,7 +36,7 @@ export default function Header() {
                         transition: "all 0.1s linear",
                     }}
                     onClick={() => {
-                        navigate("/feed");
+                        navigate("/");
                     }}
                 >
                     <BiLeftArrowAlt size={30} />

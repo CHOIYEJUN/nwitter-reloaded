@@ -84,7 +84,7 @@ export default function ProfileNameEditModal({
                     }
                 }
                 editName(true);
-                navigate("/feed");
+                navigate("/");
                 toast({
                     status: "success",
                     title: "Change username done 🫡",
